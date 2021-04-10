@@ -5,7 +5,7 @@ entity pc is
     port (
         clock:      in std_logic;
         in_port:    in std_logic;
-        out_port:   in std_logic
+        out_port:   out std_logic
     );
 end pc;
 
@@ -13,8 +13,9 @@ architecture logic of pc is
 begin
     process(clock)
     begin
-        if rising_edge()
-
+        if rising_edge(clock)
+            out_port <= in_port;
+        end if;
     end process;
 end logic;
 
