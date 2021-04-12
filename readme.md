@@ -16,7 +16,7 @@
         <i>4 ed</i>
     </th>
     <th>
-        <i>David A. Patterson / David A. Patterson </i>
+        <i>David A. Patterson / John L. Hennessy </i>
     </th>
 </tr>
 </table>
