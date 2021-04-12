@@ -1,51 +1,51 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY p_xor IS
-    PORT (
-        in_port_A : IN STD_LOGIC;
-        in_port_B : IN STD_LOGIC;
-        out_port : OUT STD_LOGIC
+entity p_xor is
+    port (
+        in_port_a : in std_logic;
+        in_port_b : in std_logic;
+        out_port : out std_logic
     );
-END p_xor;
+end p_xor;
 
-ARCHITECTURE behavior OF p_xor IS
+architecture behavior of p_xor is
 
-	COMPONENT p_and IS
-		 PORT (
-			  in_port_A : IN STD_LOGIC;
-			  in_port_B : IN STD_LOGIC;
-			  out_port : OUT STD_LOGIC
+	component p_and is
+		 port (
+			  in_port_a : in std_logic;
+			  in_port_b : in std_logic;
+			  out_port : out std_logic
 		 );
-	END COMPONENT;
+	end component;
 	
-	COMPONENT p_or IS
-		 PORT (
-			  in_port_A : IN STD_LOGIC;
-			  in_port_B : IN STD_LOGIC;
-			  out_port : OUT STD_LOGIC
+	component p_or is
+		 port (
+			  in_port_a : in std_logic;
+			  in_port_b : in std_logic;
+			  out_port : out std_logic
 		 );
-	END COMPONENT;
+	end component;
 	
-	COMPONENT p_not IS
-		 PORT (
-			  in_port_A : IN STD_LOGIC;
-			  out_port : OUT STD_LOGIC
+	component p_not is
+		 port (
+			  in_port_a : in std_logic;
+			  out_port : out std_logic
 		 );
-	END COMPONENT;
+	end component;
 	
-	SIGNAL not_A, not_B, out_and_1, out_and_2, out_or: STD_LOGIC;
+	signal not_a, not_b, out_and_1, out_and_2, out_or: std_logic;
 	
-BEGIN
+begin
 	
-		n_A : p_not PORT MAP(in_port_A, not_A);
-		n_B : p_not PORT MAP(in_port_B, not_B);
+		n_a : p_not port map(in_port_a, not_a);
+		n_b : p_not port map(in_port_b, not_b);
 		
-		p_an : p_and PORT MAP(not_A, in_port_B, out_and_1);
-		p_bn : p_and PORT MAP(in_port_A, not_B, out_and_2);
+		p_an : p_and port map(not_a, in_port_b, out_and_1);
+		p_bn : p_and port map(in_port_a, not_b, out_and_2);
 		
-		p_o : p_or PORT MAP(out_and_1, out_and_2, out_or);
+		p_o : p_or port map(out_and_1, out_and_2, out_or);
 		
 		out_port <= out_or;
     
-END behavior;
+end behavior;

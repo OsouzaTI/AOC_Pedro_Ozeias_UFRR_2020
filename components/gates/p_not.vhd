@@ -1,14 +1,14 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY p_not IS
-    PORT (
-        in_port_A : IN STD_LOGIC;
-        out_port : OUT STD_LOGIC
+entity p_not is
+    port (
+        in_port_a : in std_logic;
+        out_port : out std_logic
     );
-END p_not;
+end p_not;
 
-ARCHITECTURE behavior OF p_not IS
-BEGIN
-    out_port <= NOT(in_port_A);
-END behavior;
+architecture behavior of p_not is
+begin
+    out_port <= not(in_port_a);
+end behavior;

@@ -1,24 +1,24 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
--- Multiplexador 2x1 de 8bits
+-- multiplexador 2x1 de 8bits
 
-ENTITY mult_2x1 IS
-    PORT (
-        in_port : IN std_logic;
-        in_A : IN std_logic_vector(7 DOWNTO 0);
-        in_B : IN std_logic_vector(7 DOWNTO 0);
-        out_port : OUT std_logic_vector(7 DOWNTO 0)
+entity mult_2x1 is
+    port (
+        in_port : in std_logic;
+        in_a : in std_logic_vector(7 downto 0);
+        in_b : in std_logic_vector(7 downto 0);
+        out_port : out std_logic_vector(7 downto 0)
     );
-END mult_2x1 ;
+end mult_2x1 ;
 
-ARCHITECTURE behavior OF mult_2x1 IS
-BEGIN
-    PROCESS (in_port, in_A, in_B)
-    BEGIN
-        CASE in_port IS
-            WHEN '0' => out_port <= in_A;
-            WHEN '1' => out_port <= in_B;
-        END CASE;
-    END PROCESS;
-END behavior;
+architecture behavior of mult_2x1 is
+begin
+    process (in_port, in_a, in_b)
+    begin
+        case in_port is
+            when '0' => out_port <= in_a;
+            when '1' => out_port <= in_b;
+        end case;
+    end process;
+end behavior;
