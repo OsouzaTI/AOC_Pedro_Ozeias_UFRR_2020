@@ -23,7 +23,7 @@
     - vetor lógico de 8bits, em operações de leitura de
     registradores este saira
 
-- out_reg_B (primeiro registrador)
+- out_reg_B (segundo registrador)
     - vetor lógico de 8bits, em operações de leitura de
     registradores este saira
 
