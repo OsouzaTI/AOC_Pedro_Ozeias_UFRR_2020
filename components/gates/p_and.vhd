@@ -1,15 +1,15 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY p_and IS
-    PORT (
-        in_port_A : IN STD_LOGIC;
-        in_port_B : IN STD_LOGIC;
-        out_port : OUT STD_LOGIC
+entity p_and is
+    port (
+        in_port_a : in std_logic;
+        in_port_b : in std_logic;
+        out_port : out std_logic
     );
-END p_and;
+end p_and;
 
-ARCHITECTURE behavior OF p_and IS
-BEGIN
-    out_port <= in_port_A AND in_port_B;
-END behavior;
+architecture behavior of p_and is
+begin
+    out_port <= in_port_a and in_port_b;
+end behavior;
