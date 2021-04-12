@@ -4,7 +4,7 @@
 ## Livro Base
 <table >
 <tr>
-    <th>Capa</th>
+    <th>Organização e projeto de computadores</th>
     <th>Edição</th>
     <th>Autores</th>
 </tr>
