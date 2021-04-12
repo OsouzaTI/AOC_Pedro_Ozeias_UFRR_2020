@@ -1,3 +1,3 @@
-# WaveForm das portas lógicas
+# WaveForm (preview) das portas lógicas
 ### Porta AND
-<img src="../../components_waveforms\gates\and\and_gate.png"></img>
+<img src="../../images/components_waveforms_prev/and_gate.png"></img>
