@@ -17,13 +17,13 @@ entity somador8bits is
         cout: out std_logic;
         s: out std_logic_vector(7 downto 0)
     );
-end entity somador;
+end entity somador8bits;
 
-architecture logic of somador is 
+architecture logic of somador8bits is 
 begin
 
     process(A, B, cin)
-    variable temp: std_logic_vector(3 downto 0);
+    variable temp: std_logic_vector(7 downto 0);
     variable c: std_logic;
     begin
 

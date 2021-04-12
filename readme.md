@@ -10,7 +10,7 @@
 </tr>
 <tr style="vertical-align: top;">
     <th>
-        <img align="left" width="200" height="230" src="images/book.jpg"><br>    
+        <img width="200" height="230" src="images/book.jpg"><br>    
     </th>       
     <th>
         <i>4 ed</i>
