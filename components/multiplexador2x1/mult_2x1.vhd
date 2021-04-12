@@ -1,12 +1,14 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
+-- Multiplexador 2x1 de 8bits
+
 ENTITY mult_2x1 IS
     PORT (
         in_port : IN std_logic;
-        in_A : IN std_logic;
-        in_B : IN std_logic;
-        out_port : OUT std_logic
+        in_A : IN std_logic_vector(7 DOWNTO 0);
+        in_B : IN std_logic_vector(7 DOWNTO 0);
+        out_port : OUT std_logic_vector(7 DOWNTO 0)
     );
 END mult_2x1 ;
 
