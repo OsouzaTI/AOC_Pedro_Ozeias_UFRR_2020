@@ -2,23 +2,21 @@
 ### projeto final da disciplina de Arquiteture e organização de computadores
 
 ## Livro Base
-<table>
+<table >
 <tr>
+    <th>Capa</th>
+    <th>Edição</th>
+    <th>Autores</th>
+</tr>
+<tr style="vertical-align: top;">
     <th>
-        <img align="left" width="200" height="270" src="images/book.jpg"><br>    
-    </th>    
-    <th>    
-        <ul style=" list-style:none;">
-            <li>
-                <b>Livro</b>: <i>Orgânização e projeto de computadores</i>
-            </li>
-            <li>
-                <b>Edição</b>: <i>4 ed</i>
-            </li>
-            <li>
-                <b>Autor</b>: <i>William Stallings</i>
-            </li>
-        <ul>
-    </th>   
+        <img align="left" width="200" height="230" src="images/book.jpg"><br>    
+    </th>       
+    <th>
+        <i>4 ed</i>
+    </th>
+    <th>
+        <i>David A. Patterson / David A. Patterson </i>
+    </th>
 </tr>
 </table>
