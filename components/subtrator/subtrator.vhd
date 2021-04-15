@@ -1,5 +1,9 @@
--- subtrator 
-
+-----------------------------------------------------
+-- title       : Subtrator de 8bits
+-- project     : Processador X
+-- file        : subtrator.vhd
+-- author      : Pedro / Ozeias Souza
+-----------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 

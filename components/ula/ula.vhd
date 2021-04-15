@@ -25,10 +25,12 @@ end entity;
 -- 0010 -> Subtração			| Tipo R
 -- 0011 -> Subtração Imediata	| Tipo I
 -- 0100 -> multiplicação		| Tipo R
--- 0101 -> LW					| Tipo ?
--- 0110 -> SW					| Tipo ?
--- 0111 -> BEQ					| Tipo ?
--- 1000 -> BNE					| Tipo ?		
+-- 0101 -> Load Word			| Tipo I
+-- 0110 -> Store Word			| Tipo I
+-- 0111 -> Load Imediato		| Tipo I
+-- 1000 -> BEQ					| Tipo J
+-- 1001 -> BNE					| Tipo J
+-- 1010 -> J					| Tipo J
 -- To be Continued
 
 architecture logic of ula is
