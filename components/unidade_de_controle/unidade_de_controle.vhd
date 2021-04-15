@@ -14,7 +14,7 @@ entity controle is
         ALUOp       : in std_logic_vector(3 downto 0);
         memWrite    : in std_logic;
         AluSrc      : in std_logic;
-        RegWrite    : in std_logic;      
+        RegWrite    : in std_logic      
     );
 end entity;
 
@@ -34,90 +34,151 @@ end entity;
 
 architecture logic of controle is
 begin
-
-    -- iniciando todas as trilhas
-    reg_dst     <= '0';
-    jump        <= '0';
-    branch      <= '0';
-    memToReg    <= '0';
-    ALUOp       <= '0';
-    memWrite    <= '0';
-    AluSrc      <= '0';
-    RegWrite    <= '0';
-
+    
     process(clock, opcode)
-    constant _add    : std_logic_vector(3 downto 0) := "0000";
-    constant _addi   : std_logic_vector(3 downto 0) := "0001";
-    constant _sub    : std_logic_vector(3 downto 0) := "0010";
-    constant _subi   : std_logic_vector(3 downto 0) := "0011";
-    constant _mul    : std_logic_vector(3 downto 0) := "0100";
-    constant _lw     : std_logic_vector(3 downto 0) := "0101";
-    constant _sw     : std_logic_vector(3 downto 0) := "0110";
-    constant _li     : std_logic_vector(3 downto 0) := "0111";
-    constant _beq    : std_logic_vector(3 downto 0) := "1000";
-    constant _bne    : std_logic_vector(3 downto 0) := "1001";
-    constant _j      : std_logic_vector(3 downto 0) := "1010";
+    -- iniciando todas as constantes
+    constant c_add    : std_logic_vector(3 downto 0) := "0000";
+    constant c_addi   : std_logic_vector(3 downto 0) := "0001";
+    constant c_sub    : std_logic_vector(3 downto 0) := "0010";
+    constant c_subi   : std_logic_vector(3 downto 0) := "0011";
+    constant c_mul    : std_logic_vector(3 downto 0) := "0100";
+    constant c_lw     : std_logic_vector(3 downto 0) := "0101";
+    constant c_sw     : std_logic_vector(3 downto 0) := "0110";
+    constant c_li     : std_logic_vector(3 downto 0) := "0111";
+    constant c_beq    : std_logic_vector(3 downto 0) := "1000";
+    constant c_bne    : std_logic_vector(3 downto 0) := "1001";
+    constant c_j      : std_logic_vector(3 downto 0) := "1010";
     
     begin
 
         case opcode is 
-            when _add =>
-                opcode   <= _add;
-                RegWrite <= '1';
-            when _addi =>
-                opcode   <= _addi;
-                AluSrc   <= '1';
-                RegWrite <= '1';
-            when _sub =>
-                opcode   <= _sub;                
-                RegWrite <= '1';
-            when _subi =>
-                opcode   <= _subi;
-                AluSrc   <= '1';
-                RegWrite <= '1';
-            when _mul =>
-                opcode   <= mul;                
-                RegWrite <= '1';
-            when _lw =>
-                opcode <= _lw;
-                memRead  <= '1';
-                memToReg <= '1';
-                RegWrite <= '1';
-            when _sw =>
-                opcode <= _sw;
-                memWrite <= '1';
-            when _li =>
-                opcode <= _li;
-                AluSrc <= '1';
-                RegWrite <= '1';
-            when _beq =>
-                opcode <= _beq;
-                branch <= '1';
-            when _bne =>
-                opcode <= _bne;
-                branch <= '1';
-            when _j =>
-                opcode <= _j;
-                jump   <= '1';
-            when others => 
-                opcode      <= '1111';
+            when c_add =>
+                ALUOp       <= c_add;
+                RegWrite    <= '1';
                 reg_dst     <= '0';
                 jump        <= '0';
                 branch      <= '0';
-                memToReg    <= '0';
-                ALUOp       <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                
+                memWrite    <= '0';
+                AluSrc      <= '0';                
+            when c_addi =>
+                ALUOp       <= c_addi;
+                AluSrc      <= '1';
+                RegWrite    <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';
+                branch      <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                
+                memWrite    <= '0';                                
+            when c_sub =>
+                ALUOp       <= c_sub;                
+                RegWrite    <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';
+                branch      <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                
+                memWrite    <= '0';
+                AluSrc      <= '0';                
+            when c_subi =>
+                ALUOp       <= c_subi;
+                AluSrc      <= '1';
+                RegWrite    <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';
+                branch      <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                
+                memWrite    <= '0';                                
+            when c_mul =>
+                ALUOp       <= c_mul;                
+                RegWrite    <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';
+                branch      <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                
+                memWrite    <= '0';
+                AluSrc      <= '0';                
+            when c_lw =>
+                ALUOp       <= c_lw;
+                memRead     <= '1';
+                memToReg    <= '1';
+                RegWrite    <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';
+                branch      <= '0';                                
+                memWrite    <= '0';
+                AluSrc      <= '0';
+                
+            when c_sw =>
+                ALUOp       <= c_sw;
+                memWrite    <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';
+                branch      <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                                
+                AluSrc      <= '0';
+                RegWrite    <= '0';
+            when c_li =>
+                ALUOp       <= c_li;
+                AluSrc      <= '1';
+                RegWrite    <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';
+                branch      <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                
+                memWrite    <= '0';                                
+            when c_beq =>
+                ALUOp       <= c_beq;
+                branch      <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';  
+                memRead     <= '0';              
+                memToReg    <= '0';                
+                memWrite    <= '0';
+                AluSrc      <= '0';
+                RegWrite    <= '0';
+            when c_bne =>
+                ALUOp       <= c_bne;
+                branch      <= '1';
+                reg_dst     <= '0';
+                jump        <= '0';
+                memRead     <= '0';                
+                memToReg    <= '0';                
+                memWrite    <= '0';
+                AluSrc      <= '0';
+                RegWrite    <= '0';
+            when c_j =>
+                ALUOp       <= c_j;
+                jump        <= '1';
+                reg_dst     <= '0';                
+                branch      <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                
+                memWrite    <= '0';
+                AluSrc      <= '0';
+                RegWrite    <= '0';
+            when others => 
+                ALUOp       <= "1111";
+                reg_dst     <= '0';
+                jump        <= '0';
+                branch      <= '0';
+                memRead     <= '0';
+                memToReg    <= '0';                
                 memWrite    <= '0';
                 AluSrc      <= '0';
                 RegWrite    <= '0';
             end case;
-        end process;
-
-            -- when "1011" -- 11
-            -- when "1100" -- 12
-            -- when "1110" -- 13
-            -- when "1111" -- 14
-            -- when "0000" -- 15            
-
-    end;
-
+            
+        -- when "1011" -- 11
+        -- when "1100" -- 12
+        -- when "1110" -- 13
+        -- when "1111" -- 14
+        -- when "0000" -- 15            
+    end process;
 end;
