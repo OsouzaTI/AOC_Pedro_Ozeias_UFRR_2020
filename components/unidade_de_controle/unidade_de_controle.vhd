@@ -6,15 +6,15 @@ entity controle is
     port(
         clock       : in std_logic;
         opcode      : in std_logic_vector(3 downto 0);
-        reg_dst     : in std_logic;
-        jump        : in std_logic;
-        branch      : in std_logic;
-        memRead     : in std_logic;
-        memToReg    : in std_logic;
-        ALUOp       : in std_logic_vector(3 downto 0);
-        memWrite    : in std_logic;
-        AluSrc      : in std_logic;
-        RegWrite    : in std_logic      
+        reg_dst     : out std_logic;
+        jump        : out std_logic;
+        branch      : out std_logic;
+        memRead     : out std_logic;
+        memToReg    : out std_logic;
+        ALUOp       : out std_logic_vector(3 downto 0);
+        memWrite    : out std_logic;
+        AluSrc      : out std_logic;
+        RegWrite    : out std_logic      
     );
 end entity;
 
