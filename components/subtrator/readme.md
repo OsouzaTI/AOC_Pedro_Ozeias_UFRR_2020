@@ -13,4 +13,5 @@
 
 # WaveForm do circuito
 ### preview
+
 <img src="../../images/components_waveforms_prev/subtrator8bits.png"></img>
