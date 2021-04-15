@@ -1,3 +1,10 @@
+-----------------------------------------------------
+-- title       : Deslocamento de bits a direita
+-- project     : Processador
+-- file        : shift_right8bits.vhd
+-- author      : Ozeias Souza
+-----------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;

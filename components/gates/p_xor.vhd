@@ -1,3 +1,10 @@
+-----------------------------------------------------
+-- title       : Porta XOR
+-- project     : Processador
+-- file        : p_xor.vhd
+-- author      : Pedro
+-----------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

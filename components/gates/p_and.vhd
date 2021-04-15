@@ -1,3 +1,10 @@
+-----------------------------------------------------
+-- title       : Porta AND
+-- project     : Processador
+-- file        : p_and.vhd
+-- author      : Pedro
+-----------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

@@ -1,3 +1,10 @@
+-----------------------------------------------------
+-- title       : Program Counter
+-- project     : Processador
+-- file        : pc.vhd
+-- author      : Ozeias Souza
+-----------------------------------------------------
+
 library library IEEE;
 use IEEE.std_logic_1164.all;
 

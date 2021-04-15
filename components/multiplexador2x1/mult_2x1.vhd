@@ -1,3 +1,10 @@
+-----------------------------------------------------
+-- title       : Multiplexador 2x1
+-- project     : Processador
+-- file        : mult_2x1.vhd
+-- author      : Pedro
+-----------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

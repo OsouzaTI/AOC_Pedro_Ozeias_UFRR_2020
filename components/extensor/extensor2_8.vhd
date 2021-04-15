@@ -1,9 +1,10 @@
 -----------------------------------------------------
--- title       : Extensor de 4bits para 8bits
+-- title       : Extensor de 2bits para 8bits
 -- project     : Processador
 -- file        : extensor2_8.vhd
--- author      : Pedro
+-- author      : Ozeias Souza
 -----------------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 

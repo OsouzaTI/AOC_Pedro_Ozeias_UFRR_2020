@@ -1,3 +1,9 @@
+-----------------------------------------------------
+-- title       : Porta OR
+-- project     : Porta OR
+-- file        : p_or.vhd
+-- author      : Pedro
+-----------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
 

@@ -1,3 +1,10 @@
+-----------------------------------------------------
+-- title       : Unidade Lógica Aritmética
+-- project     : Processador
+-- file        : ula.vhd
+-- author      : Ozeias Souza / Pedro
+-----------------------------------------------------
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
