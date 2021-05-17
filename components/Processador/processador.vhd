@@ -145,7 +145,6 @@ architecture logic of processador is
             in_B	: in std_logic_vector(7 downto 0);	-- entrada B			(8bits)
             S_out 	: out std_logic_vector(7 downto 0);	-- S_out				(8bits)
             z_out	: out std_logic;	 					-- Saida zero da ULA	(1bit)
-				print_out : out std_logic_vector(7 downto 0);
 				ula_overflow	: out std_logic 					-- Overflow de operações da ULA (1bit)
         );
     end component;
@@ -204,7 +203,6 @@ architecture logic of processador is
     -- sinais da ULA
     signal ula_out          : std_logic_vector(7 downto 0);
     signal ula_z            : std_logic;
-    signal system_print     : std_logic_vector(7 downto 0) := "00000000";
 	 signal ula_overflow     : std_logic;
     
     signal and_0            : std_logic;
@@ -228,14 +226,13 @@ begin
 	 pm_banco_registradores: banco_reg port map(clock, f_reg_write, rs, rt, mx2, r_a, r_b);
 	 pm_extensor2_8: extensor2_8 port map(rt, sign_extension_2_8);
 	 pm_mx_1: mult_2x1 port map(f_alu_src, r_b, sign_extension_2_8, mx1);
-	 pm_ula: ula port map(clock, f_alu_op, r_a, mx1, ula_out, ula_z, system_print, ula_overflow);
+	 pm_ula: ula port map(clock, f_alu_op, r_a, mx1, ula_out, ula_z, ula_overflow);
 	 pm_memoria_ram: ram port map(clock, ula_out, f_mem_write, f_mem_read, sign_extension_2_8, m_ram);
 	 pm_mx_2: mult_2x1 port map(f_mem_to_reg, ula_out, m_ram, mx2);
 	 pm_extensor4_8: extensor4_8 port map(addr, sign_extension_4_8);
 	 pm_and_0: p_and port map(f_branch, ula_z, and_0);
 	 pm_mx_3: mult_2x1 port map(and_0, out_contador_pc, sign_extension_4_8, mx3);
 	 pm_mx_4: mult_2x1 port map(f_jump, mx3, sign_extension_4_8, mx4);
-	 --pm_print: print_helper port map(clock, f_print, m_ram, system_print);
 	 
     -- Resultados Saidas
     pc_out              <= out_pc;
@@ -250,6 +247,5 @@ begin
     ula_overflow_out    <= ula_overflow;
     ram_out             <= m_ram;
     mx_2_out            <= mx2;
-	 print_out 				<= system_print;
 
 end;

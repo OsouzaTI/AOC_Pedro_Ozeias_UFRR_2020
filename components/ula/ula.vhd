@@ -17,7 +17,6 @@ entity ula is
 		in_B				: in std_logic_vector(7 downto 0);	-- entrada B							(8bits)
 		S_out 			: out std_logic_vector(7 downto 0);	-- S_out									(8bits)
 		z_out		 		: out std_logic; 							-- Saida zero da ULA					(1bit)
-		print_out      : out std_logic_vector(7 downto 0);
 		ula_overflow	: out std_logic 							-- Overflow de operações da ULA 	(1bit)
     );
 end entity;
@@ -115,7 +114,6 @@ end component ;
 	signal overflow_soma, overflow_subtracao	: std_logic;
 	signal in_branch_helper  : std_logic;
 	signal out_branch_helper: std_logic;
-	signal result : std_logic_vector(7 downto 0);
 begin
 
 	bh:  branch_helper port map(in_branch_helper, out_branch_helper);
@@ -130,36 +128,34 @@ begin
 				-- 1 operação | soma
 				when "0000" =>
 					S_out <= soma;
-					result <= soma;
 					ula_overflow <= overflow_soma;
 				-- 2 operação | soma imediata
 				when "0001" =>
 					S_out <= soma;	
-					result <= soma;	
 					ula_overflow <= overflow_soma;	
 				-- 3 operação | subtração
 				when "0010" =>
 					S_out <= subtracao;	
-					result <= subtracao;
 					ula_overflow <= overflow_subtracao;		
 				-- 4 operação | subtração imediata
 				when "0011" =>
 					S_out <= subtracao;	
-					result <= subtracao;
 					ula_overflow <= overflow_subtracao;	
 				-- 5 operação | multiplicação
 				when "0100" =>
 					S_out  <= multiplicacao(7 downto 0);	
-					result <= multiplicacao(7 downto 0);
 				-- 6 operação 
 				when "0101" =>
 					S_out <= in_A;
+					ula_overflow <= '0';
 				-- 7 operação 
 				when "0110" =>
 					S_out <= in_A;
+					ula_overflow <= '0';
 				-- 8 operação 
 				when "0111" =>
 					S_out <= in_B;
+					ula_overflow <= '0';
 				-- 9 operação -- beq
 				when "1000" =>
 					if out_branch_helper = '1' then
@@ -168,6 +164,7 @@ begin
 						z_out <= '0';
 					end if;					
 					S_out <= "00000000";
+					ula_overflow <= '0';					
 				-- 10 operação -- bne
 				when "1001" =>
 					if out_branch_helper = '0' then
@@ -185,7 +182,7 @@ begin
 					S_out <= "00000000";
 				when others =>
 				S_out <= "00000000";	
-				
+				ula_overflow <= '0';
 			end case;
 	end process;
 
